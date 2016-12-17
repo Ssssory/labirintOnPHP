@@ -1,0 +1,29 @@
+.square{
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border: 1px solid #999;
+}
+.wall_t{
+  border-top: 2px solid #000;
+}
+.wall_r{
+  border-right: 2px solid #000;
+}
+.wall_b{
+  border-bottom: 2px solid #000;
+}
+.wall_l{
+  border-left: 2px solid #000;
+}
+.character{
+  position: absolute;
+  top:calc(50% - 5px);
+  left:calc(50% - 5px);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: green;
+}

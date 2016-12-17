@@ -1,0 +1,30 @@
+<?php
+require_once "metods.php";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <?php
+  $start = complete_sel('square wall_b wall_t wall_l');
+  $start = inner_character($start);
+  echo $start;
+  $row='';
+  $base_arr_str= 'square wall_b wall_t';
+  for($i=0;$i<1;$i++){
+    $row .= complete_sel($base_arr_str);
+    echo $row;
+  }
+  echo $row;
+  $nav = drow_nav();
+  echo $nav;
+  ?>
+
+</body>
+</html>
