@@ -11,20 +11,35 @@ require_once "metods.php";
   <title>Document</title>
 </head>
 <body>
+  <div class="level">
+
+
   <?php
-  $start = complete_sel('square wall_b wall_t wall_l');
-  $start = inner_character($start);
-  echo $start;
-  $row='';
-  $base_arr_str= 'square wall_b wall_t';
-  for($i=0;$i<1;$i++){
-    $row .= complete_sel($base_arr_str);
-    echo $row;
-  }
-  echo $row;
-  $nav = drow_nav();
-  echo $nav;
+  $start_arr = [1,5,5,10,2,15,5,10,5,2];
+  $line2_arr = [15,5,5,9,5,12,15,9,5,2];
+  $line3_arr = [13,5,2,15,5,10,9,5,5,14];
+  $line4_arr = [0,0,0,0,0,0,0,0,0,0];
+  $line5_arr = [0,0,0,0,0,0,0,0,0,0];
+  $line6_arr = [0,0,0,0,0,0,0,0,0,0];
+  $line7_arr = [0,0,0,0,0,0,0,0,0,0];
+  $line8_arr = [0,0,0,0,0,0,0,0,0,0];
+  $line9_arr = [0,0,0,0,0,0,0,0,0,0];
+  $last_arr = [0,0,0,0,0,0,0,0,0,0];
+
+  $row_start = drow_row($start_arr);
+  $row2 = drow_row($line2_arr);
+  $row3 = drow_row($line3_arr);
+  $row4 = drow_row($line4_arr);
+  $row5 = drow_row($line5_arr);
+  $row6 = drow_row($line6_arr);
+  $row7 = drow_row($line7_arr);
+  $row8 = drow_row($line8_arr);
+  $row9 = drow_row($line9_arr);
+  $row_last = drow_row($last_arr);
+
+  echo  $row_start.$row2.$row3.$row4.$row5.$row6.$row7.$row8.$row9.$row_last;
   ?>
+  </div>
 
 </body>
 </html>
