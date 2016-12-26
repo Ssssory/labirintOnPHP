@@ -1,8 +1,13 @@
 <?php
 
 function complete_sel($par){
+      if (is_array($par)){
+        $temp="<div class=\"".$par[0]."\"><div class='character'></div></div>";
+        return $temp;
+      }else{
       $temp="<div class=\"".$par."\"></div>";
       return $temp;
+    }
 }
 function inner_character($par){
   $temp = explode('</div>', $par);
@@ -21,7 +26,8 @@ function drow_nav(){
 
 function sell_type_inner($n){
   if (is_array($n)){
-    return sell_type_inner($n[0]);
+     $temp = sell_type_inner($n[0]);
+     return array("$temp","person");
   }else{
     switch($n){
       case 0:
