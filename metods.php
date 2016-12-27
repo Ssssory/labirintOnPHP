@@ -90,15 +90,7 @@ function drow_row($arr){
   }
   return $row;
 }
-/*function drow_row($arr){
-  $row='';
-  $base_arr= $arr;
 
-  for($i=0;$i<5;$i++){
-    $row .= complete_sel(sell_type_inner($base_arr[$i]));
-  }
-  return $row;
-}*/
 
 function add_arr_to_all_map($arr1, $arr2, $arr3, $arr4, $arr5){
   $ret_map = array(array('') );
@@ -118,6 +110,102 @@ function add_arr_to_all_map($arr1, $arr2, $arr3, $arr4, $arr5){
     $ret_map[4][$i] = $arr5[$i];
   }
 return($ret_map);
+}
+
+
+function nav_drow($n){
+  switch($n){
+    case 1:
+    echo '<button type="submit" class="top_button">up</button>';
+    echo '<button type="submit">left</button>';
+    echo '<button type="submit">down</button>';
+    echo '<button type="submit" value="right" name="right">right</button>';
+    break;
+    case 2:
+    echo '<button type="submit" class="top_button">up</button>';
+    echo '<button type="submit" value="left" name="left">left</button>';
+    echo '<button type="submit">down</button>';
+    echo '<button type="submit">right</button>';
+    break;
+    case 3:
+    echo '<button type="submit" value="up" name="up" class="top_button">up</button>';
+    echo '<button type="submit">left</button>';
+    echo '<button type="submit">down</button>';
+    echo '<button type="submit">right</button>';
+    break;
+    case 4:
+    echo '<button type="submit" class="top_button">up</button>';
+    echo '<button type="submit">left</button>';
+    echo '<button type="submit" value="down" name="down">down</button>';
+    echo '<button type="submit">right</button>';
+    break;
+    case 5:
+    echo '<button type="submit" class="top_button">up</button>';
+    echo '<button type="submit" value="left" name="left">left</button>';
+    echo '<button type="submit">down</button>';
+    echo '<button type="submit" value="right" name="right">right</button>';
+    break;
+    case 6:
+    echo '<button type="submit" value="up" name="up" class="top_button">up</button>';
+    echo '<button type="submit">left</button>';
+    echo '<button type="submit" value="down" name="down">down</button>';
+    echo '<button type="submit" >right</button>';
+    break;
+    case 7:
+    echo '<button type="submit" value="up" name="up" class="top_button">up</button>';
+    echo '<button type="submit">left</button>';
+    echo '<button type="submit" value="down" name="down">down</button>';
+    echo '<button type="submit" value="right" name="right">right</button>';
+    break;
+    case 8:
+    echo '<button type="submit" value="up" name="up" class="top_button">up</button>';
+    echo '<button type="submit" value="left" name="left">left</button>';
+    echo '<button type="submit" value="down" name="down">down</button>';
+    echo '<button type="submit">right</button>';
+    break;
+    case 9:
+    echo '<button type="submit" value="up" name="up" class="top_button">up</button>';
+    echo '<button type="submit" value="left" name="left">left</button>';
+    echo '<button type="submit">down</button>';
+    echo '<button type="submit" value="right" name="right">right</button>';
+    break;
+    case 10:
+    echo '<button type="submit" class="top_button">up</button>';
+    echo '<button type="submit" value="left" name="left">left</button>';
+    echo '<button type="submit" value="down" name="down">down</button>';
+    echo '<button type="submit" value="right" name="right">right</button>';
+    break;
+    case 11:
+    echo '<button type="submit" value="up" name="up" class="top_button">up</button>';
+    echo '<button type="submit" value="left" name="left">left</button>';
+    echo '<button type="submit" value="down" name="down">down</button>';
+    echo '<button type="submit" value="right" name="right">right</button>';
+    break;
+    case 12:
+    echo '<button type="submit" value="up" name="up" class="top_button">up</button>';
+    echo '<button type="submit" value="left" name="left">left</button>';
+    echo '<button type="submit">down</button>';
+    echo '<button type="submit">right</button>';
+    break;
+    case 13:
+    echo '<button type="submit" value="up" name="up" class="top_button">up</button>';
+    echo '<button type="submit">left</button>';
+    echo '<button type="submit">down</button>';
+    echo '<button type="submit" value="right" name="right">right</button>';
+    break;
+    case 14:
+    echo '<button type="submit" class="top_button">up</button>';
+    echo '<button type="submit" value="left" name="left">left</button>';
+    echo '<button type="submit" value="down" name="down">down</button>';
+    echo '<button type="submit">right</button>';
+    break;
+    case 15:
+    echo '<button type="submit" class="top_button">up</button>';
+    echo '<button type="submit">left</button>';
+    echo '<button type="submit" value="down" name="down">down</button>';
+    echo '<button type="submit" value="right" name="right">right</button>';
+    break;
+  }
 }
 
 

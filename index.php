@@ -49,23 +49,13 @@ $all_map_drow[$person_y][$person_x] = array("$el_to_array","person");
 // выводим карту
 $drow_map = drow_row($all_map_drow);
 echo $drow_map;
-  /*$row_start = drow_row($start_arr);
-  $row2 = drow_row($line2_arr);
-  $row3 = drow_row($line3_arr);
-  $row4 = drow_row($line4_arr);
-  $row5 = drow_row($line5_arr);
 
-
-  echo  $row_start.$row2.$row3.$row4.$row5;*/
   ?>
   </div>
   <?php
 echo "<div class='nav'>";
 echo '<form action="index.php" method="POST">';
-echo '<button type="submit" value="up" name="up" class="top_button">up</button>';
-echo '<button type="submit" value="left" name="left">left</button>';
-echo '<button type="submit" value="down" name="down">down</button>';
-echo '<button type="submit" value="right" name="right">right</button>';
+nav_drow($el_to_array);
 echo '</form>';
 echo "</div>";
 
