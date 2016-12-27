@@ -44,3 +44,17 @@
   border: 2px solid #999;
   margin-bottom: -4px;
 }
+
+.nav{
+  width: 200px;
+  margin: auto;
+  margin-top: 50px;
+}
+.nav button{
+  margin-left: 11%;
+}
+.nav .top_button{
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+}

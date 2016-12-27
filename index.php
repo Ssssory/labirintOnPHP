@@ -15,6 +15,12 @@ require_once "metods.php";
 
 
   <?php
+  session_start();
+  if (isset($_SESSION['init_fase'])) {
+  $_SESSION['init_fase'] = 0;
+} else {
+  $_SESSION['init_fase'] = 1;
+}
 // создание карты. доработать на генераторе.
   $start_arr = [1,5,5,10,2];
   $line2_arr = [15,5,5,9,2];
@@ -25,12 +31,20 @@ require_once "metods.php";
   $all_map = array(array('') );
 $all_map = add_arr_to_all_map($start_arr, $line2_arr, $line3_arr, $line4_arr, $last_arr);
 // карта для персонажа
-$person_y = 0;
-$person_x = 0;
+require_once("logic.php");
+if($_SESSION['init_fase'] == 1){
+  $_SESSION['person_y'] = 0;
+  $_SESSION['person_x'] = 0;
+  $person_y = $_SESSION['person_y'];
+  $person_x = $_SESSION['person_x'];
+}else{
+  $person_y = $_SESSION['person_y'];
+  $person_x = $_SESSION['person_x'];
+}
 $all_map_drow = array(array('') );
 $all_map_drow = $all_map;
-$temp = $all_map_drow[$person_y][$person_x];
-$all_map_drow[$person_y][$person_x] = array("$temp","person");
+$el_to_array = $all_map_drow[$person_y][$person_x];
+$all_map_drow[$person_y][$person_x] = array("$el_to_array","person");
 
 // выводим карту
 $drow_map = drow_row($all_map_drow);
@@ -45,6 +59,22 @@ echo $drow_map;
   echo  $row_start.$row2.$row3.$row4.$row5;*/
   ?>
   </div>
+  <?php
+echo "<div class='nav'>";
+echo '<form action="index.php" method="POST">';
+echo '<button type="submit" value="up" name="up" class="top_button">up</button>';
+echo '<button type="submit" value="left" name="left">left</button>';
+echo '<button type="submit" value="down" name="down">down</button>';
+echo '<button type="submit" value="right" name="right">right</button>';
+echo '</form>';
+echo "</div>";
+
+print_r($_POST);
+echo "<br>";
+print_r($_SESSION);
+
+
+   ?>
 
 </body>
 </html>
