@@ -1,5 +1,6 @@
 <?php
-
+require_once("datebase.php");
+$link = db_connect();
 function complete_sel($par){
       if (is_array($par)){
         $temp="<div class=\"".$par[0]."\"><div class='character'></div></div>";
@@ -207,6 +208,32 @@ function nav_drow($n){
     break;
   }
 }
+
+function init_map($id){
+  $query = sprintf("SELECT start_arr, line2_arr, line3_arr, line4_arr, last_arr FROM maps WHERE num=%d",$id);
+  $link = db_connect();
+  $result = mysqli_query($link, $query);
+  if(!$result){
+    die(mysqli_error($link));
+  }
+  $result = mysqli_fetch_assoc($result);
+  return $result;
+}
+
+function arr_to_map_from_base($arr){
+  $ret_map = array(array('') );
+  $count_num = 0;
+  foreach($arr as $key){
+    $arr_temp = explode(",", $key);
+    for ($i=0; $i < count($arr_temp); $i++) {
+      $ret_map[$count_num][$i] = $arr_temp[$i];
+    }
+    $count_num++;
+  }
+
+return($ret_map);
+}
+
 
 
 
