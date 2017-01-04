@@ -92,7 +92,7 @@ function drow_row($arr){
   return $row;
 }
 
-
+// рисовка напрямую из генератора, возможно...
 function add_arr_to_all_map($arr1, $arr2, $arr3, $arr4, $arr5){
   $ret_map = array(array('') );
   for ($i=0; $i < count($arr1); $i++) {

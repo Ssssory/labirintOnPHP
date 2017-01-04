@@ -22,19 +22,12 @@ require_once "metods.php";
   $_SESSION['init_fase'] = 1;
 }
 // <!-- -->
-// создание карты. доработать на генераторе.
-/*  $start_arr = [1,5,5,10,2];
-  $line2_arr = [15,5,5,9,2];
-  $line3_arr = [13,10,2,15,2];
-  $line4_arr = [1,9,10,9,2];
-  $last_arr = [1,5,9,5,2];
-*/
-// $all_map исходная карта уровня.
-  $all_map = array(array('') );
-  //print_r(init_map(1));
-//$all_map = add_arr_to_all_map($start_arr, $line2_arr, $line3_arr, $line4_arr, $last_arr);
-$all_map = arr_to_map_from_base(init_map(1));
+// создание карты доработать на генераторе.
 // <!-- -->
+// $all_map исходная карта уровня.
+$all_map = array(array('') );
+$all_map = arr_to_map_from_base(init_map(1));
+
 // карта для персонажа
 require_once("logic.php");
 if($_SESSION['init_fase'] == 1){
