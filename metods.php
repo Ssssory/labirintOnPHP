@@ -230,8 +230,12 @@ function arr_to_map_from_base($arr){
     }
     $count_num++;
   }
-
 return($ret_map);
+}
+
+function open_map($arr_i, $y, $x, $arr_p){
+  $arr_p[$y][$x] = $arr_i[$y][$x];
+  return $arr_p;
 }
 
 
