@@ -1,5 +1,12 @@
 <?php
 require_once "metods.php";
+session_start();
+if(isset($_POST['clear'])){
+  unset($_SESSION['init_fase']);
+  unset($_SESSION['person_map']);
+  unset($_POST["up"]);
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,21 +22,19 @@ require_once "metods.php";
 
 
   <?php
-  session_start();
+
   if (isset($_SESSION['init_fase'])) {
   $_SESSION['init_fase'] = 0;
 } else {
   $_SESSION['init_fase'] = 1;
 }
-// создание карты. доработать на генераторе.
-  $start_arr = [1,5,5,10,2];
-  $line2_arr = [15,5,5,9,2];
-  $line3_arr = [13,10,2,15,2];
-  $line4_arr = [1,9,10,9,2];
-  $last_arr = [1,5,9,5,2];
+// <!-- -->
+// создание карты доработать на генераторе.
+// <!-- -->
 // $all_map исходная карта уровня.
-  $all_map = array(array('') );
-$all_map = add_arr_to_all_map($start_arr, $line2_arr, $line3_arr, $line4_arr, $last_arr);
+$all_map = array(array('') );
+$all_map = arr_to_map_from_base(init_map(2));
+
 // карта для персонажа
 require_once("logic.php");
 if($_SESSION['init_fase'] == 1){
@@ -44,10 +49,22 @@ if($_SESSION['init_fase'] == 1){
 $all_map_drow = array(array('') );
 $all_map_drow = $all_map;
 $el_to_array = $all_map_drow[$person_y][$person_x];
-$all_map_drow[$person_y][$person_x] = array("$el_to_array","person");
-
+//$all_map_drow[$person_y][$person_x] = array("$el_to_array","person");
+//добавляем карту персонажа
+if($_SESSION['init_fase'] == 1){
+  $open_map = array(array('') );
+  $open_map = arr_to_map_from_base(init_map(1));
+  $_SESSION['person_map'] = $open_map;
+  $open_map = open_map($all_map, $person_y, $person_x, $_SESSION['person_map']);
+  $_SESSION['person_map'] = $open_map;
+}else{
+  $open_map = open_map($all_map, $person_y, $person_x, $_SESSION['person_map']);
+  $_SESSION['person_map'] = $open_map;
+}
 // выводим карту
-$drow_map = drow_row($all_map_drow);
+//$drow_map = drow_row($all_map_drow);
+$open_map[$person_y][$person_x] = array("$el_to_array","person");
+$drow_map = drow_row($open_map);
 echo $drow_map;
 
   ?>
@@ -61,7 +78,17 @@ echo "</div>";
 
 print_r($_POST);
 echo "<br>";
+
+echo '<form action="index.php" method="POST">';
+echo '<button type="submit" value="yes" name="clear">restart</button>';
+echo '</form>';
+
+echo"<pre>";
 print_r($_SESSION);
+echo"</pre>";
+echo"<br>";
+
+
 
 
    ?>
